@@ -8,10 +8,11 @@
 
         Dim comando As New System.Data.SqlClient.SqlCommand
         comando.Connection = conexao
-        comando.CommandText = ""
+        comando.CommandText = String.Format("INSERT INTO Alunos (Nome, Telefone) VALUES ('{0}','{1}')", txtnome.Text, txttelefone.Text)
         comando.ExecuteNonQuery()
 
         conexao.Close()
+
 
 
     End Sub
