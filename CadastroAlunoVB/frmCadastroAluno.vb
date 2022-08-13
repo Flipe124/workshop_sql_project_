@@ -13,10 +13,28 @@
 
         conexao.Close()
 
-
-
     End Sub
 
+    Private Sub btnPesquisar_Click(sender As Object, e As EventArgs) Handles btnPesquisar.Click
+        Dim conexao As New System.Data.SqlClient.SqlConnection
+        conexao.ConnectionString = strConexao
+        conexao.Open()
+
+        Dim comando As New System.Data.SqlClient.SqlCommand
+        comando.Connection = conexao
+        comando.CommandText = String.Format("SELECT * FROM Alunos WHERE Nome LIKE '%{0}%'", txtPesquisaNome.Text)
+
+        Dim banco As New DataSet
+        Dim adptadorDeDados As New System.Data.SqlClient.SqlDataAdapter(comando.CommandText, conexao)
+        adptadorDeDados.Fill(banco)
+
+
+        conexao.Close()
+
+        DataGridView1.DataSource = banco.Tables(0)
+        DataGridView1.Refresh()
+
+    End Sub
 
 
 
@@ -45,6 +63,5 @@
     Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click, Label6.Click
 
     End Sub
-
 
 End Class

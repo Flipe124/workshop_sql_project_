@@ -298,18 +298,21 @@ Partial Class frmCadastroAluno
         '
         'colCodigo
         '
+        Me.colCodigo.DataPropertyName = "IdAluno"
         Me.colCodigo.HeaderText = "Código"
         Me.colCodigo.Name = "colCodigo"
         Me.colCodigo.ReadOnly = True
         '
         'colNome
         '
+        Me.colNome.DataPropertyName = "Nome"
         Me.colNome.HeaderText = "Nome"
         Me.colNome.Name = "colNome"
         Me.colNome.ReadOnly = True
         '
         'colTelefone
         '
+        Me.colTelefone.DataPropertyName = "Telefone"
         Me.colTelefone.HeaderText = "Telefone"
         Me.colTelefone.Name = "colTelefone"
         Me.colTelefone.ReadOnly = True
@@ -358,11 +361,11 @@ Partial Class frmCadastroAluno
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents colCodigo As DataGridViewTextBoxColumn
-    Friend WithEvents colNome As DataGridViewTextBoxColumn
-    Friend WithEvents colTelefone As DataGridViewTextBoxColumn
     Friend WithEvents btnPesquisar As Button
     Friend WithEvents txtPesquisaNome As TextBox
     Friend WithEvents txtPesquisaCodigo As TextBox
     Friend WithEvents Label6 As Label
+    Friend WithEvents colCodigo As DataGridViewTextBoxColumn
+    Friend WithEvents colNome As DataGridViewTextBoxColumn
+    Friend WithEvents colTelefone As DataGridViewTextBoxColumn
 End Class
