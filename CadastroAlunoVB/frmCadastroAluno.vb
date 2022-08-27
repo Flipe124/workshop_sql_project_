@@ -67,10 +67,7 @@
     End Sub
 
     Private Sub btnAtualizar_Click(sender As Object, e As EventArgs) Handles btnAtualizar.Click
-        If txtcodigo.Text.Length <= 0 Then
-            MessageBox.Show("Código do aluno não informado!")
-            Exit Sub
-        End If
+        If Validar(txtcodigo.Text) Then Exit Sub
 
         Dim conexao As New System.Data.SqlClient.SqlConnection
         conexao.ConnectionString = strConexao
@@ -95,7 +92,7 @@
 
     Private Sub btnExcluir_Click(sender As Object, e As EventArgs) Handles btnExcluir.Click
 
-        If Not Validar(txtcodigo.Text) Then Exit Sub
+        If Validar(txtcodigo.Text) Then Exit Sub
 
         Dim conexao As New System.Data.SqlClient.SqlConnection
         conexao.ConnectionString = strConexao
@@ -115,10 +112,8 @@
     End Sub
 
     Private Sub ExcluirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExcluirToolStripMenuItem.Click
-        'If IsNull(gAlunos.CurrentRow.Cells("colIdAluno").Value) Then
-        '    MessageBox.Show("Código do aluno não informado!")
-        '    Exit Sub
-        'End If
+
+        'If Validar(gAlunos.CurrentRow.Cells("colIdAluno").Value) Then Exit Sub
 
         Dim conexao As New System.Data.SqlClient.SqlConnection
         conexao.ConnectionString = strConexao
@@ -148,7 +143,7 @@
 
     Private Function Validar(codigo As String) As Boolean
         If codigo.Length <= 0 Then
-            MessageBox.Show(codigo)
+            MessageBox.Show("Código do aluno, não encontrado!")
             Return True
         Else
             Return False
