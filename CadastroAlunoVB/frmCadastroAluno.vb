@@ -38,9 +38,17 @@
     Private Sub DataGridView1_DoubleClick(sender As Object, e As EventArgs) Handles gAlunos.DoubleClick
         'txtcodigo.Text = DataGridView1.SelectedRows(0).Cells("colIdAluno").Value
 
-        txtcodigo.Text = gAlunos.CurrentRow.Cells("colIdAluno").Value
-        txtnome.Text = gAlunos.CurrentRow.Cells("colNome").Value
-        txttelefone.Text = gAlunos.CurrentRow.Cells("colTelefone").Value
+        'txtcodigo.Text = gAlunos.CurrentRow.Cells("colIdAluno").Value
+        'txtnome.Text = gAlunos.CurrentRow.Cells("colNome").Value
+        'txttelefone.Text = gAlunos.CurrentRow.Cells("colTelefone").Value
+
+        With gAlunos.CurrentRow
+
+            txtcodigo.Text = .Cells("colIdAluno").Value
+            txtnome.Text = .Cells("colNome").Value
+            txttelefone.Text = .Cells("colTelefone").Value
+
+        End With
 
     End Sub
 
@@ -54,6 +62,19 @@
         End With
     End Sub
 
+    Private Sub btnAtualizar_Click(sender As Object, e As EventArgs) Handles btnAtualizar.Click
+        Dim conexao As New System.Data.SqlClient.SqlConnection
+        conexao.ConnectionString = strConexao
+        conexao.Open()
+
+        Dim comando As New System.Data.SqlClient.SqlCommand
+        comando.Connection = conexao
+        comando.CommandText = String.Format("UPDATE Alunos SET Nome = '{0}', Telefone = '{1}' WHERE IdAluno = '{2}'", txtnome.Text, txttelefone.Text, txtcodigo.Text)
+        comando.ExecuteNonQuery()
+
+        conexao.Close()
+    End Sub
+
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles gAlunos.CellContentClick
 
     End Sub
@@ -61,6 +82,7 @@
     Private Sub frmCadastroAluno_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
 
 
 
