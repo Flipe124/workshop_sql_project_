@@ -94,6 +94,35 @@
         conexao.Close()
     End Sub
 
+    Private Sub ExcluirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExcluirToolStripMenuItem.Click
+        'With gAlunos.CurrentRow
+
+        '    txtcodigo.Text = .Cells("colIdAluno").Value
+        '    txtnome.Text = .Cells("colNome").Value
+        '    txttelefone.Text = .Cells("colTelefone").Value
+
+        'End With
+
+
+
+        Dim conexao As New System.Data.SqlClient.SqlConnection
+        conexao.ConnectionString = strConexao
+        conexao.Open()
+
+        Dim comando As New System.Data.SqlClient.SqlCommand
+        comando.Connection = conexao
+        comando.CommandText = String.Format("DELETE FROM Alunos WHERE IdAluno = '{0}'", gAlunos.CurrentRow.Cells("colIdAluno").Value)
+        comando.ExecuteNonQuery()
+
+        conexao.Close()
+    End Sub
+
+
+
+
+
+
+
     'Alterar nome para gAlunos' 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles gAlunos.CellContentClick
 
@@ -102,6 +131,7 @@
     Private Sub frmCadastroAluno_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
 
 
 

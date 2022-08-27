@@ -62,7 +62,7 @@ Partial Class frmCadastroAluno
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SelecionarToolStripMenuItem, Me.ExcluirToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(129, 48)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(181, 70)
         '
         'GroupBox1
         '
@@ -309,7 +309,7 @@ Partial Class frmCadastroAluno
         'ExcluirToolStripMenuItem
         '
         Me.ExcluirToolStripMenuItem.Name = "ExcluirToolStripMenuItem"
-        Me.ExcluirToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
+        Me.ExcluirToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ExcluirToolStripMenuItem.Text = "Excluir"
         '
         'frmCadastroAluno
