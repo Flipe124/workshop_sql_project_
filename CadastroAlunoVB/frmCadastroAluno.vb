@@ -15,6 +15,8 @@
 
         btnPesquisar_Click(sender, e)
 
+        limpar("Aluno cadastrado com suecesso", "Aluno cadastrado")
+
     End Sub
 
     Private Sub btnPesquisar_Click(sender As Object, e As EventArgs) Handles btnPesquisar.Click
@@ -65,6 +67,11 @@
     End Sub
 
     Private Sub btnAtualizar_Click(sender As Object, e As EventArgs) Handles btnAtualizar.Click
+        If txtcodigo.Text.Length <= 0 Then
+            MessageBox.Show("Código do aluno não informado!")
+            Exit Sub
+        End If
+
         Dim conexao As New System.Data.SqlClient.SqlConnection
         conexao.ConnectionString = strConexao
         conexao.Open()
@@ -78,15 +85,18 @@
 
         btnPesquisar_Click(sender, e)
 
+        limpar("Aluno atualizado com suecesso", "Aluno atualizado")
+
     End Sub
 
     Private Sub btnLimpar_Click(sender As Object, e As EventArgs) Handles btnLimpar.Click
-        txtcodigo.Text = ""
-        txtnome.Text = ""
-        txttelefone.Text = ""
+        limpar("", "")
     End Sub
 
     Private Sub btnExcluir_Click(sender As Object, e As EventArgs) Handles btnExcluir.Click
+
+        If Not Validar(txtcodigo.Text) Then Exit Sub
+
         Dim conexao As New System.Data.SqlClient.SqlConnection
         conexao.ConnectionString = strConexao
         conexao.Open()
@@ -100,9 +110,16 @@
 
         btnPesquisar_Click(sender, e)
 
+        limpar("Aluno excluído com suecesso", "Aluno excluído")
+
     End Sub
 
     Private Sub ExcluirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExcluirToolStripMenuItem.Click
+        'If IsNull(gAlunos.CurrentRow.Cells("colIdAluno").Value) Then
+        '    MessageBox.Show("Código do aluno não informado!")
+        '    Exit Sub
+        'End If
+
         Dim conexao As New System.Data.SqlClient.SqlConnection
         conexao.ConnectionString = strConexao
         conexao.Open()
@@ -118,9 +135,25 @@
 
     End Sub
 
+    Private Sub limpar(Mensagem As String, Titulo As String)
+        txtcodigo.Text = ""
+        txtnome.Text = ""
+        txttelefone.Text = ""
 
+        If Mensagem <> "" Then
+            MessageBox.Show(Mensagem, Titulo)
+        End If
 
+    End Sub
 
+    Private Function Validar(codigo As String) As Boolean
+        If codigo.Length <= 0 Then
+            MessageBox.Show(codigo)
+            Return True
+        Else
+            Return False
+        End If
+    End Function
 
 
 
