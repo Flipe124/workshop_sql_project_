@@ -30,23 +30,39 @@
 
         conexao.Close()
 
-        DataGridView1.DataSource = banco.Tables(0)
-        DataGridView1.Refresh()
+        gAlunos.DataSource = banco.Tables(0)
+        gAlunos.Refresh()
 
     End Sub
 
-    Private Sub DataGridView1_DoubleClick(sender As Object, e As EventArgs) Handles DataGridView1.DoubleClick
+    Private Sub DataGridView1_DoubleClick(sender As Object, e As EventArgs) Handles gAlunos.DoubleClick
         'txtcodigo.Text = DataGridView1.SelectedRows(0).Cells("colIdAluno").Value
 
-        txtcodigo.Text = DataGridView1.CurrentRow.Cells("colIdAluno").Value
-        txtnome.Text = DataGridView1.CurrentRow.Cells("colNome").Value
-        txttelefone.Text = DataGridView1.CurrentRow.Cells("colTelefone").Value
+        txtcodigo.Text = gAlunos.CurrentRow.Cells("colIdAluno").Value
+        txtnome.Text = gAlunos.CurrentRow.Cells("colNome").Value
+        txttelefone.Text = gAlunos.CurrentRow.Cells("colTelefone").Value
 
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+    Private Sub SelecionarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SelecionarToolStripMenuItem.Click
+        With gAlunos.CurrentRow
+
+            txtcodigo.Text = .Cells("colIdAluno").Value
+            txtnome.Text = .Cells("colNome").Value
+            txttelefone.Text = .Cells("colTelefone").Value
+
+        End With
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles gAlunos.CellContentClick
 
     End Sub
+
+    Private Sub frmCadastroAluno_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+
 
 
 

@@ -24,9 +24,6 @@ Partial Class frmCadastroAluno
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.MenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SairToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txttelefone = New System.Windows.Forms.TextBox()
@@ -40,7 +37,7 @@ Partial Class frmCadastroAluno
         Me.btnAtualizar = New System.Windows.Forms.Button()
         Me.btnIncluir = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.gAlunos = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnPesquisar = New System.Windows.Forms.Button()
         Me.txtPesquisaNome = New System.Windows.Forms.TextBox()
@@ -51,37 +48,21 @@ Partial Class frmCadastroAluno
         Me.colIdAluno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colNome = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colTelefone = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ContextMenuStrip2.SuspendLayout()
+        Me.SelecionarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExcluirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gAlunos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ContextMenuStrip1
         '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SelecionarToolStripMenuItem, Me.ExcluirToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
-        '
-        'ContextMenuStrip2
-        '
-        Me.ContextMenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem})
-        Me.ContextMenuStrip2.Name = "ContextMenuStrip2"
-        Me.ContextMenuStrip2.Size = New System.Drawing.Size(106, 26)
-        '
-        'MenuToolStripMenuItem
-        '
-        Me.MenuToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SairToolStripMenuItem})
-        Me.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem"
-        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(105, 22)
-        Me.MenuToolStripMenuItem.Text = "menu"
-        '
-        'SairToolStripMenuItem
-        '
-        Me.SairToolStripMenuItem.Name = "SairToolStripMenuItem"
-        Me.SairToolStripMenuItem.Size = New System.Drawing.Size(92, 22)
-        Me.SairToolStripMenuItem.Text = "sair"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(129, 48)
         '
         'GroupBox1
         '
@@ -209,7 +190,7 @@ Partial Class frmCadastroAluno
         'GroupBox3
         '
         Me.GroupBox3.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.GroupBox3.Controls.Add(Me.DataGridView1)
+        Me.GroupBox3.Controls.Add(Me.gAlunos)
         Me.GroupBox3.Controls.Add(Me.Panel1)
         Me.GroupBox3.Controls.Add(Me.Label4)
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -220,16 +201,17 @@ Partial Class frmCadastroAluno
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "pesquisa"
         '
-        'DataGridView1
+        'gAlunos
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colIdAluno, Me.colNome, Me.colTelefone})
-        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.DataGridView1.Location = New System.Drawing.Point(3, 89)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(859, 207)
-        Me.DataGridView1.TabIndex = 3
+        Me.gAlunos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.gAlunos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colIdAluno, Me.colNome, Me.colTelefone})
+        Me.gAlunos.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.gAlunos.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.gAlunos.Location = New System.Drawing.Point(3, 89)
+        Me.gAlunos.Name = "gAlunos"
+        Me.gAlunos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.gAlunos.Size = New System.Drawing.Size(859, 207)
+        Me.gAlunos.TabIndex = 3
         '
         'Panel1
         '
@@ -318,6 +300,18 @@ Partial Class frmCadastroAluno
         Me.colTelefone.Name = "colTelefone"
         Me.colTelefone.ReadOnly = True
         '
+        'SelecionarToolStripMenuItem
+        '
+        Me.SelecionarToolStripMenuItem.Name = "SelecionarToolStripMenuItem"
+        Me.SelecionarToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
+        Me.SelecionarToolStripMenuItem.Text = "Selecionar"
+        '
+        'ExcluirToolStripMenuItem
+        '
+        Me.ExcluirToolStripMenuItem.Name = "ExcluirToolStripMenuItem"
+        Me.ExcluirToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
+        Me.ExcluirToolStripMenuItem.Text = "Excluir"
+        '
         'frmCadastroAluno
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -328,13 +322,13 @@ Partial Class frmCadastroAluno
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "frmCadastroAluno"
         Me.Text = "frmCdastroAluno"
-        Me.ContextMenuStrip2.ResumeLayout(False)
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gAlunos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
@@ -342,9 +336,6 @@ Partial Class frmCadastroAluno
     End Sub
 
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
-    Friend WithEvents ContextMenuStrip2 As ContextMenuStrip
-    Friend WithEvents MenuToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SairToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
@@ -358,7 +349,7 @@ Partial Class frmCadastroAluno
     Friend WithEvents btnExcluir As Button
     Friend WithEvents btnAtualizar As Button
     Friend WithEvents btnIncluir As Button
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents gAlunos As DataGridView
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
@@ -369,4 +360,6 @@ Partial Class frmCadastroAluno
     Friend WithEvents colIdAluno As DataGridViewTextBoxColumn
     Friend WithEvents colNome As DataGridViewTextBoxColumn
     Friend WithEvents colTelefone As DataGridViewTextBoxColumn
+    Friend WithEvents SelecionarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExcluirToolStripMenuItem As ToolStripMenuItem
 End Class
