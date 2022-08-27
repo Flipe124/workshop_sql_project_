@@ -75,6 +75,26 @@
         conexao.Close()
     End Sub
 
+    Private Sub btnLimpar_Click(sender As Object, e As EventArgs) Handles btnLimpar.Click
+        txtcodigo.Text = ""
+        txtnome.Text = ""
+        txttelefone.Text = ""
+    End Sub
+
+    Private Sub btnExcluir_Click(sender As Object, e As EventArgs) Handles btnExcluir.Click
+        Dim conexao As New System.Data.SqlClient.SqlConnection
+        conexao.ConnectionString = strConexao
+        conexao.Open()
+
+        Dim comando As New System.Data.SqlClient.SqlCommand
+        comando.Connection = conexao
+        comando.CommandText = String.Format("DELETE FROM Alunos WHERE IdAluno = '{0}'", txtcodigo.Text)
+        comando.ExecuteNonQuery()
+
+        conexao.Close()
+    End Sub
+
+    'Alterar nome para gAlunos' 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles gAlunos.CellContentClick
 
     End Sub
@@ -82,6 +102,8 @@
     Private Sub frmCadastroAluno_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+
 
 
 
