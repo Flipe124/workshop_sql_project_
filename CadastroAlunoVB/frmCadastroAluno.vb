@@ -13,6 +13,8 @@
 
         conexao.Close()
 
+        btnPesquisar_Click(sender, e)
+
     End Sub
 
     Private Sub btnPesquisar_Click(sender As Object, e As EventArgs) Handles btnPesquisar.Click
@@ -73,6 +75,9 @@
         comando.ExecuteNonQuery()
 
         conexao.Close()
+
+        btnPesquisar_Click(sender, e)
+
     End Sub
 
     Private Sub btnLimpar_Click(sender As Object, e As EventArgs) Handles btnLimpar.Click
@@ -92,19 +97,12 @@
         comando.ExecuteNonQuery()
 
         conexao.Close()
+
+        btnPesquisar_Click(sender, e)
+
     End Sub
 
     Private Sub ExcluirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExcluirToolStripMenuItem.Click
-        'With gAlunos.CurrentRow
-
-        '    txtcodigo.Text = .Cells("colIdAluno").Value
-        '    txtnome.Text = .Cells("colNome").Value
-        '    txttelefone.Text = .Cells("colTelefone").Value
-
-        'End With
-
-
-
         Dim conexao As New System.Data.SqlClient.SqlConnection
         conexao.ConnectionString = strConexao
         conexao.Open()
@@ -115,6 +113,9 @@
         comando.ExecuteNonQuery()
 
         conexao.Close()
+
+        btnPesquisar_Click(sender, e)
+
     End Sub
 
 

@@ -45,11 +45,11 @@ Partial Class frmCadastroAluno
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.SelecionarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExcluirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.colIdAluno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colNome = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colTelefone = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SelecionarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExcluirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -62,7 +62,7 @@ Partial Class frmCadastroAluno
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SelecionarToolStripMenuItem, Me.ExcluirToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(181, 70)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(129, 48)
         '
         'GroupBox1
         '
@@ -131,7 +131,7 @@ Partial Class frmCadastroAluno
         '
         'GroupBox2
         '
-        Me.GroupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.GroupBox2.BackColor = System.Drawing.SystemColors.Info
         Me.GroupBox2.Controls.Add(Me.btnLimpar)
         Me.GroupBox2.Controls.Add(Me.btnExcluir)
         Me.GroupBox2.Controls.Add(Me.btnAtualizar)
@@ -147,11 +147,11 @@ Partial Class frmCadastroAluno
         'btnLimpar
         '
         Me.btnLimpar.BackColor = System.Drawing.Color.Gold
-        Me.btnLimpar.Location = New System.Drawing.Point(144, 29)
+        Me.btnLimpar.Location = New System.Drawing.Point(226, 29)
         Me.btnLimpar.Name = "btnLimpar"
-        Me.btnLimpar.Size = New System.Drawing.Size(123, 31)
+        Me.btnLimpar.Size = New System.Drawing.Size(200, 31)
         Me.btnLimpar.TabIndex = 0
-        Me.btnLimpar.Text = "Limpar"
+        Me.btnLimpar.Text = "LIMPAR"
         Me.btnLimpar.UseVisualStyleBackColor = False
         '
         'btnExcluir
@@ -160,36 +160,36 @@ Partial Class frmCadastroAluno
         Me.btnExcluir.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnExcluir.Location = New System.Drawing.Point(15, 29)
         Me.btnExcluir.Name = "btnExcluir"
-        Me.btnExcluir.Size = New System.Drawing.Size(123, 31)
+        Me.btnExcluir.Size = New System.Drawing.Size(200, 31)
         Me.btnExcluir.TabIndex = 0
-        Me.btnExcluir.Text = "Excluir"
+        Me.btnExcluir.Text = "EXCLUIR"
         Me.btnExcluir.UseVisualStyleBackColor = False
         '
         'btnAtualizar
         '
         Me.btnAtualizar.BackColor = System.Drawing.Color.DodgerBlue
         Me.btnAtualizar.ForeColor = System.Drawing.Color.White
-        Me.btnAtualizar.Location = New System.Drawing.Point(273, 29)
+        Me.btnAtualizar.Location = New System.Drawing.Point(438, 29)
         Me.btnAtualizar.Name = "btnAtualizar"
-        Me.btnAtualizar.Size = New System.Drawing.Size(123, 31)
+        Me.btnAtualizar.Size = New System.Drawing.Size(200, 31)
         Me.btnAtualizar.TabIndex = 0
-        Me.btnAtualizar.Text = "Atualizar"
+        Me.btnAtualizar.Text = "ATUALIZAR"
         Me.btnAtualizar.UseVisualStyleBackColor = False
         '
         'btnIncluir
         '
         Me.btnIncluir.BackColor = System.Drawing.Color.ForestGreen
         Me.btnIncluir.ForeColor = System.Drawing.Color.White
-        Me.btnIncluir.Location = New System.Drawing.Point(402, 29)
+        Me.btnIncluir.Location = New System.Drawing.Point(650, 29)
         Me.btnIncluir.Name = "btnIncluir"
-        Me.btnIncluir.Size = New System.Drawing.Size(123, 31)
+        Me.btnIncluir.Size = New System.Drawing.Size(200, 31)
         Me.btnIncluir.TabIndex = 0
-        Me.btnIncluir.Text = "Incluir"
+        Me.btnIncluir.Text = "CADASTRAR"
         Me.btnIncluir.UseVisualStyleBackColor = False
         '
         'GroupBox3
         '
-        Me.GroupBox3.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GroupBox3.BackColor = System.Drawing.SystemColors.Info
         Me.GroupBox3.Controls.Add(Me.gAlunos)
         Me.GroupBox3.Controls.Add(Me.Panel1)
         Me.GroupBox3.Controls.Add(Me.Label4)
@@ -203,10 +203,13 @@ Partial Class frmCadastroAluno
         '
         'gAlunos
         '
+        Me.gAlunos.AllowUserToAddRows = False
+        Me.gAlunos.AllowUserToOrderColumns = True
         Me.gAlunos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.gAlunos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colIdAluno, Me.colNome, Me.colTelefone})
         Me.gAlunos.ContextMenuStrip = Me.ContextMenuStrip1
         Me.gAlunos.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.gAlunos.GridColor = System.Drawing.SystemColors.Info
         Me.gAlunos.Location = New System.Drawing.Point(3, 89)
         Me.gAlunos.Name = "gAlunos"
         Me.gAlunos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -215,7 +218,7 @@ Partial Class frmCadastroAluno
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.IndianRed
+        Me.Panel1.BackColor = System.Drawing.SystemColors.Info
         Me.Panel1.Controls.Add(Me.btnPesquisar)
         Me.Panel1.Controls.Add(Me.txtPesquisaNome)
         Me.Panel1.Controls.Add(Me.txtPesquisaCodigo)
@@ -231,18 +234,18 @@ Partial Class frmCadastroAluno
         '
         Me.btnPesquisar.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnPesquisar.ForeColor = System.Drawing.Color.Black
-        Me.btnPesquisar.Location = New System.Drawing.Point(605, 25)
+        Me.btnPesquisar.Location = New System.Drawing.Point(750, 23)
         Me.btnPesquisar.Name = "btnPesquisar"
         Me.btnPesquisar.Size = New System.Drawing.Size(101, 23)
         Me.btnPesquisar.TabIndex = 2
-        Me.btnPesquisar.Text = "Pesquisar"
+        Me.btnPesquisar.Text = "PESQUISAR"
         Me.btnPesquisar.UseVisualStyleBackColor = False
         '
         'txtPesquisaNome
         '
         Me.txtPesquisaNome.Location = New System.Drawing.Point(96, 25)
         Me.txtPesquisaNome.Name = "txtPesquisaNome"
-        Me.txtPesquisaNome.Size = New System.Drawing.Size(503, 20)
+        Me.txtPesquisaNome.Size = New System.Drawing.Size(647, 20)
         Me.txtPesquisaNome.TabIndex = 1
         '
         'txtPesquisaCodigo
@@ -279,27 +282,6 @@ Partial Class frmCadastroAluno
         Me.Label4.TabIndex = 1
         Me.Label4.Text = "Label4"
         '
-        'colIdAluno
-        '
-        Me.colIdAluno.DataPropertyName = "IdAluno"
-        Me.colIdAluno.HeaderText = "Código"
-        Me.colIdAluno.Name = "colIdAluno"
-        Me.colIdAluno.ReadOnly = True
-        '
-        'colNome
-        '
-        Me.colNome.DataPropertyName = "Nome"
-        Me.colNome.HeaderText = "Nome"
-        Me.colNome.Name = "colNome"
-        Me.colNome.ReadOnly = True
-        '
-        'colTelefone
-        '
-        Me.colTelefone.DataPropertyName = "Telefone"
-        Me.colTelefone.HeaderText = "Telefone"
-        Me.colTelefone.Name = "colTelefone"
-        Me.colTelefone.ReadOnly = True
-        '
         'SelecionarToolStripMenuItem
         '
         Me.SelecionarToolStripMenuItem.Name = "SelecionarToolStripMenuItem"
@@ -311,6 +293,30 @@ Partial Class frmCadastroAluno
         Me.ExcluirToolStripMenuItem.Name = "ExcluirToolStripMenuItem"
         Me.ExcluirToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ExcluirToolStripMenuItem.Text = "Excluir"
+        '
+        'colIdAluno
+        '
+        Me.colIdAluno.DataPropertyName = "IdAluno"
+        Me.colIdAluno.HeaderText = "Código"
+        Me.colIdAluno.Name = "colIdAluno"
+        Me.colIdAluno.ReadOnly = True
+        Me.colIdAluno.Width = 60
+        '
+        'colNome
+        '
+        Me.colNome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.colNome.DataPropertyName = "Nome"
+        Me.colNome.HeaderText = "Nome"
+        Me.colNome.Name = "colNome"
+        Me.colNome.ReadOnly = True
+        '
+        'colTelefone
+        '
+        Me.colTelefone.DataPropertyName = "Telefone"
+        Me.colTelefone.HeaderText = "Telefone"
+        Me.colTelefone.Name = "colTelefone"
+        Me.colTelefone.ReadOnly = True
+        Me.colTelefone.Width = 150
         '
         'frmCadastroAluno
         '
@@ -357,9 +363,9 @@ Partial Class frmCadastroAluno
     Friend WithEvents txtPesquisaNome As TextBox
     Friend WithEvents txtPesquisaCodigo As TextBox
     Friend WithEvents Label6 As Label
+    Friend WithEvents SelecionarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExcluirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents colIdAluno As DataGridViewTextBoxColumn
     Friend WithEvents colNome As DataGridViewTextBoxColumn
     Friend WithEvents colTelefone As DataGridViewTextBoxColumn
-    Friend WithEvents SelecionarToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ExcluirToolStripMenuItem As ToolStripMenuItem
 End Class
